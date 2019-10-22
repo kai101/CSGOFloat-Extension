@@ -2,8 +2,8 @@
     "manifest_version": 2,
     "name": "CSGOFloat Market Checker",
     "short_name": "CSGOFloat",
-    "version": "1.2.0",
-    "description": "Dedicated API for fetching the float value and paint seed of CSGO items on the market",
+    "version": "2.2.1",
+    "description": "Dedicated API for fetching the float value, paint seed, and screenshots of CS:GO items on the Steam Market",
     "icons": {
         "16": "icons/16.png",
         "48": "icons/48.png",
@@ -11,16 +11,20 @@
     },
     "content_scripts": [
         {
-            "matches": ["*://*.steamcommunity.com/market/listings/730/*"],
+            "matches": [
+                "*://*.steamcommunity.com/market/listings/730/*",
+                "*://*.steamcommunity.com/id/*/inventory*",
+                "*://*.steamcommunity.com/profiles/*/inventory*"
+            ],
             "js": [
                 "lib/filtrex.js",
                 "lib/utils.js",
                 "lib/filters.js",
+                "lib/queue.js",
+                "lib/bridge.js",
                 "float.js"
             ],
-            "css": [
-                "float.css"
-            ]
+            "css": ["float.css"]
         }
     ],
     "background": {
@@ -29,6 +33,12 @@
     "permissions": [
         "https://api.csgofloat.com:1738/*",
         "*://*.steamcommunity.com/market/listings/730/*",
+        "*://*.steamcommunity.com/id/*/inventory*",
+        "*://*.steamcommunity.com/profiles/*/inventory*",
         "storage"
+    ],
+    "web_accessible_resources": [
+        "model_frame.html",
+        "model_frame.js"
     ]
 }

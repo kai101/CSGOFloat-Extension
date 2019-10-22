@@ -40,33 +40,109 @@ In order to bypass CSP, the extension uses page event listeners to communicate w
 
 ## Changelog
 
-v1.0.0
-* Initial release
+v2.2.1
 
-v1.0.1
-* Implemented support for requesting all floats on the given page
+* FloatDB ranks now link to the relevant db.csgofloat.com page
+* Allows filtering on item `price` (requires user to be logged in to Steam)
+* Fixes link errors on Souvenir Package items
 
-v1.0.2
-* Added "Fetching" status to the "Get Float" button when that item is being processed
-* Cleaned up the code w/ better commenting
+v2.2.0
 
-v1.1
-* Rewrite of the extension to allow greater flexibility in the future
+* Shows ranks from FloatDB (db.csgofloat.com) if in the top 1000
+* Colours inventory items gold/silver/bronze if ranked #1/#2-3/#4-5 respectively in either low or high float
+* Allows filtering based on rank
 
-v1.1.1
-* Fixes Slow Item Info Retrieval Handling
+v2.1.2
 
-v1.1.2
-* Implements proper sanitization of injected HTML during float retrieval
+* Fixes cases where filters would not highlight if loaded slowly
+* Removes Steam Inventory Helper (if installed) market stickers due to a visual conflict
 
-v1.1.3
-* Fixes 'Unknown Error' on Firefox
+v2.1.1
 
-v1.1.4
-* Updates API Endpoint Port
-* Fixes float selector when the user has items on sale (thanks @z32nissan)
+* Fixes Wear Range Extraction (fixes `percentile` and `percentileRange` functions)
+
+v2.1.0
+
+* Automatically loads floats/paintseeds at a glance in your inventory
+* Allows easy inspecting of items on the market by clicking on their image
+* Shows when an item will be tradable in other inventories
+* Fixes instances of duplicate item data requests
+* Lowers bandwidth used for item data requests
+
+v2.0.3
+
+* Fixes sticker image handling with stickers that have commas in the name
+* Fixes cases where the utility bar can be added multiple times
+
+v2.0.2
+
+* Fixes sticker parsing on non-english pages
+* Fixes race-condition in Opera for adding the utilities panel
+
+v2.0.1
+
+* Fixes automatic float fetching when Steam Inventory Helper is installed
+
+v2.0.0
+
+* Adds integrated screenshot and 3D models for market skins, powered by cs.money
+* Automatically fetches market floats on page load
+* Fetches float and paint seed for inventory skins
+* Shows market skin stickers and their wear
+* Shows doppler phase if applicable
+* Restricts properties saved in global filters to save space
+* Fixes filters using the "X in (Y, Z)" notation
+* Allows filtering on doppler phase
+
+v1.3.2
+
+* Fixes float value sorting on pages where the user has items listed
+
+v1.3.1
+
+* Implements sorting listings by float value
+
+v1.3.0
+
+* Implements global filters: filters can now be toggled to apply to all skins
+* Implements percentile and percentileRange filter functions
+
+v1.2.2
+
+* Fixes deletion of filter keys without any filters (applicable if you've put filters on 512 items)
+
+v1.2.1
+
+* Adds user-definable page size (up to 100)
+* Page size is stored in sync storage
 
 v1.2.0
 
 * Adds simultaneous request functionality (up to 10)
 * Adds Filtrex user-defined filters with highlight colours
+
+v1.1.4
+* Updates API Endpoint Port
+* Fixes float selector when the user has items on sale (thanks @z32nissan)
+
+v1.1.3
+* Fixes 'Unknown Error' on Firefox
+
+v1.1.2
+* Implements proper sanitization of injected HTML during float retrieval
+
+v1.1.1
+* Fixes Slow Item Info Retrieval Handling
+
+v1.1
+* Rewrite of the extension to allow greater flexibility in the future
+
+v1.0.2
+* Added "Fetching" status to the "Get Float" button when that item is being processed
+* Cleaned up the code w/ better commenting
+
+v1.0.1
+* Implemented support for requesting all floats on the given page
+
+v1.0.0
+* Initial release
