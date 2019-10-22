@@ -128,9 +128,15 @@ const showFloat = function(listingId) {
         let itemFloatDiv = floatDiv.querySelector('.itemfloat');
         if (itemFloatDiv) itemFloatDiv.innerText = `Float: ${itemInfo.floatvalue}`;
 
+		// Add the paint index
+        let paintDiv = floatDiv.querySelector('.itempaintindex');
+        if (paintDiv) paintDiv.innerText = `Paint Index: ${itemInfo.paintindex}`;
+		
         // Add the paint seed
         let seedDiv = floatDiv.querySelector('.itemseed');
         if (seedDiv) seedDiv.innerText = `Paint Seed: ${itemInfo.paintseed}`;
+		
+
 
         let vars = {
             'float': itemInfo.floatvalue,
@@ -293,7 +299,7 @@ const addButtons = function() {
         floatDiv.appendChild(getFloatButton);
 
         // Create divs the following class names and append them to the button div
-        let divClassNames = ['floatmessage', 'itemfloat', 'itemseed'];
+        let divClassNames = ['floatmessage', 'itemfloat', 'itemseed', 'itempaintindex'];
 
         for (let className of divClassNames) {
             let div = document.createElement('div');
